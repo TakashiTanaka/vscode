@@ -1,0 +1,149 @@
+// Place your key bindings in this file to override the defaults
+[
+  // 入力候補をtabで選べるように
+  {
+    "key": "tab",
+    "command": "selectNextSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  {
+    "key": "shift+tab",
+    "command": "selectPrevSuggestion",
+    "when": "editorTextFocus && suggestWidgetMultipleSuggestions && suggestWidgetVisible"
+  },
+  // Liveserverのデフォルのキーバインド無効化
+  {
+    "key": "cmd+l cmd+o",
+    "command": "-extension.liveServer.goOnline",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "cmd+l cmd+c",
+    "command": "-extension.liveServer.goOffline",
+    "when": "editorTextFocus"
+  },
+  // Explorerで新規ファイル・新規フォルダを作る
+  {
+    "key": "cmd+n",
+    "command": "explorer.newFile"
+  },
+  {
+    "key": "ctrl+cmd+n",
+    "command": "explorer.newFolder"
+  },
+  // ターミナルにフォーカス
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.focus"
+  },
+  // ファイルの削除
+  {
+    "key": "ctrl+shift+d",
+    "command": "deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  {
+    "key": "alt+cmd+backspace",
+    "command": "-deleteFile",
+    "when": "explorerViewletVisible && filesExplorerFocus && !explorerResourceReadonly && !inputFocus"
+  },
+  // vscodeのリロード
+  {
+    "key": "cmd+r",
+    "command": "workbench.action.reloadWindow"
+  },
+  {
+    "key": "cmd+r",
+    "command": "-workbench.action.reloadWindow",
+    "when": "isDevelopment"
+  },
+  // html/pugファイルの時のbr挿入
+  {
+    "key": "shift+enter",
+    "command": "type",
+    "args": {
+      "text": "<br>"
+    },
+    "when": "editorTextFocus && editorLangId == 'html' || editorTextFocus && editorLangId == 'jade' || editorTextFocus && editorLangId == 'markdown'"
+  },
+  // explorerで選択中のフォルダをターミナルで開く
+  {
+    "key": "ctrl+o ctrl+t",
+    "command": "openInTerminal"
+  },
+  // vscodeデフォルトキーバインドの無効化
+  // {
+  //   "key": "ctrl+j",
+  //   "command": "-editor.action.joinLines",
+  //   "when": "editorTextFocus && !editorReadonly"
+  // },
+  // vscode-neovimのカスタムキーバインド
+  // insert modeの時jjを連打でnormal modeへ
+  {
+    "command": "vscode-neovim.compositeEscape1",
+    "key": "j",
+    "when": "neovim.mode == insert && editorTextFocus",
+    "args": "j"
+  },
+  // 大文字・小文字の切替
+  {
+    "key": "ctrl+shift+u",
+    "command": "editor.action.transformToUppercase",
+    "when": "editorHasSelection && editorTextFocus"
+  },
+  {
+    "key": "ctrl+u",
+    "command": "editor.action.transformToLowercase",
+    "when": "editorHasSelection && editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+w",
+    "command": "-workbench.action.toggleTabsVisibility"
+  },
+
+  // ============================================
+  // サイドバーのgit管理
+  // 参考:https://zenn.dev/bun913/articles/750754b8cf79be
+  // ============================================
+
+  // ステージング
+  {
+    "key": "u",
+    "command": "git.stage",
+    "when": "sideBarFocus && activeViewlet == 'workbench.view.scm'"
+  },
+
+  // shift + c でコミットメッセージの入力へ
+  {
+    "key": "shift+c",
+    "command": "git.commitStaged",
+    "when": "sideBarFocus && activeViewlet == 'workbench.view.scm'"
+  },
+
+  // shift+u でステージングを戻す
+  {
+    "key": "shift+u",
+    "command": "git.unstage",
+    "when": "sideBarFocus && activeViewlet == 'workbench.view.scm'"
+  },
+  {
+    "key": "shift+space",
+    "command": "editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+space",
+    "command": "-editor.action.triggerSuggest",
+    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+  },
+  /* エメットの設定 */
+  {
+    "key": "ctrl+w",
+    "command": "-workbench.action.switchWindow"
+  },
+  {
+    "key": "cmd+h w",
+    "command": "editor.emmet.action.wrapWithAbbreviation",
+    "when": "editorLangId == 'html' || editorHasSelection && editorLangId == 'php'"
+  }
+]
